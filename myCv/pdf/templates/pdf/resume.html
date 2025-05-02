@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        hr {
+            margin: 20px 0;
+            border: 0;
+            height: 1px;
+            background-color: #ccc;
+        }
+        section {
+            margin-bottom: 25px;
+        }
+        .title {
+            text-align: center;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        p {
+            line-height: 1.6;
+        }
+        .label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>{{ user_profile.name }}</h1>
+            <p>{{ user_profile.email }} | {{ user_profile.phone }} | {{ user_profile.address }}</p>
+        </div>
+
+        <hr>
+
+        <section>
+            <span class="label">Summary</span>
+            <p>{{ user_profile.summary }}</p>
+        </section>
+        <hr>
+
+        <section>
+            <span class="label">Skills</span>
+            <ul>
+                {% for skill in skills %}
+                    <li>{{ skill }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+        <hr>
+
+        <section>
+            <span class="label">Experience</span>
+            <p>{{ user_profile.previous_experience }}</p>
+        </section>
+        <hr>
+
+        <section>
+            <span class="label">Education</span>
+            <ul>
+                <li>Degree : {{ user_profile.degree }}</li>
+                <li>University :{{ user_profile.university }}</li>
+            </ul>
+        </section>
+        <hr>
+    </div>
+</body>
+</html>
